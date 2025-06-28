@@ -28,7 +28,7 @@ public final class DataExtraction {
 	        String filePath = props.getProperty("file.path");
 			
 		LogUtils.log("***************************************************");
-		service.saveToDB("/lib/data.txt",props);		
+		service.saveToDB(filePath,props);		
 			
 		} catch (Exception e) {
 			status = false;
