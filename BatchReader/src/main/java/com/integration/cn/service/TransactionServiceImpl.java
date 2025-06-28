@@ -22,7 +22,7 @@ public class TransactionServiceImpl implements TransactionService {
 
 	private static final TransactionDAO transDAO = new TransactionDAOImpl();
 	
-	public List<TransactionDO> saveToDB(String filename) {
+	public List<TransactionDO> saveToDB(String filename,,Properties prop) {
 			List<TransactionDO> list = new ArrayList<>();
 			List<TransactionDO> filtered = new ArrayList<>();
 			try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
