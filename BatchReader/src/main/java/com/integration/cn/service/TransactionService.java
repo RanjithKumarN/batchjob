@@ -8,7 +8,7 @@ import com.integration.domain.TransactionDO;
 
 public interface TransactionService {
 
-	public List<TransactionDO> saveToDB(String fileName) ;
+	public List<TransactionDO> saveToDB(String fileName,Properties prop) ;
 	
 
 }
