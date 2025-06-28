@@ -22,9 +22,9 @@ public class TransactionDAOImpl implements TransactionDAO {
 		String dbUrl = props.getProperty("db.url");
         String dbUser = props.getProperty("db.username");
         String dbPass = props.getProperty("db.password");
+	Connection conn=null;
 
-
-	        try (Connection conn = DriverManager.getConnection(dbUrl, dbUser, dbPass)) {
+	        try ( conn = DriverManager.getConnection(dbUrl, dbUser, dbPass)) {
 	        	String sql = "INSERT INTO transactions (account_number, trx_amount, description, transaction_date, transaction_time, cust_id) VALUES (?, ?, ?, ?, ?, ?)";
 		        try (PreparedStatement ps = conn.prepareStatement(sql)) {
 		            for (TransactionDO t : list) {
@@ -40,7 +40,9 @@ public class TransactionDAOImpl implements TransactionDAO {
 		        }
 	        }catch(Exception e) {
 	        	e.printStackTrace();
-	        }
+	        }finally{
+			conn.close();
+		}
 	        
 	    }			
 }
